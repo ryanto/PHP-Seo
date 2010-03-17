@@ -69,6 +69,15 @@ class PSeoTests_RobotsTests_TxtTest extends PHPUnit_Framework_TestCase {
 
     }
 
+    public function testSitemap() {
+        $this->robots->setSitemap('http://www.google.com/sitemap.xml');
+
+        $data = explode("\n", $this->robots->content());
+
+        $this->assertEquals('Sitemap: http://www.google.com/sitemap.xml', $data[2]);
+
+    }
+
     protected function tearDown() {
         unset($this->robots);
     }

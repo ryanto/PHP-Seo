@@ -5,6 +5,7 @@ class PSeo_Robots_Txt {
     private $_allow = array('/');
     private $_block = array();
     private $_userAgent = '*';
+    private $_sitemap = '';
 
     public function allowUrls($urls) {
         $this->_allow = array_merge($this->_allow, $urls);
@@ -26,6 +27,10 @@ class PSeo_Robots_Txt {
         $this->_userAgent = $userAgent;
     }
 
+    public function setSitemap($sitemap) {
+        $this->_sitemap = $sitemap;
+    }
+
     public function content() {
         $text = "User-Agent: " . $this->_userAgent . "\n";
 
@@ -37,6 +42,7 @@ class PSeo_Robots_Txt {
             $text .= "Allow: " . $url . "\n";
         }
 
+        $text .= "Sitemap: " . $this->_sitemap . "\n";
         return $text;
 
     }
