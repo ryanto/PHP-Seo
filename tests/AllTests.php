@@ -7,8 +7,12 @@ set_include_path(get_include_path() . PATH_SEPARATOR .
 
 require_once 'PHPUnit/Framework.php';
 require_once 'RobotsTests/TxtTest.php';
+
 require_once 'SitemapTests/UrlTests/AbstractTest.php';
 require_once 'SitemapTests/UrlTests/XmlTest.php';
+
+require_once 'SitemapTests/AbstractTest.php';
+require_once 'SitemapTests/XmlTest.php';
 
 class AllTests extends PHPUnit_Framework_TestSuite {
 
@@ -25,7 +29,9 @@ class AllTests extends PHPUnit_Framework_TestSuite {
         $suite->addTestSuite('PSeoTests_SitemapTests_UrlTests_AbstractTest');
         $suite->addTestSuite('PSeoTests_SitemapTests_UrlTests_XmlTest');
 
-
+        $suite->addTestSuite('PSeoTests_SitemapTests_AbstractTest');
+        $suite->addTestSuite('PSeoTests_SitemapTests_XmlTest');
+        
         return $suite;
     }
 

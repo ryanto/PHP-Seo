@@ -1,21 +1,25 @@
 <?php
 
-require_once 'PSeo/Sitemap/Url.php';
-
 abstract class PSeo_Sitemap_Abstract {
 
     abstract function content();
 
     protected $_urls = array();
 
-    public function addUrl($url) {
-        $url = new PSeo_Sitemap_Url();
-        $url->setLoc($url);
+    public function createUrl() {
+        $className = 'PSeo_Sitemap_Url_' . $this->_className;
+        $url = new $className;
+        return $url;
+    }
+
+    public function addUrl($urlString) {
+        $url = $this->createUrl();
+        $url->setLoc($urlString);
         $this->addUrlObject($url);
     }
 
     public function addUrlData($urlData) {
-        $url = new PSeo_Sitemap_Url();
+        $url = $this->createUrl();
         $url->setData($urlData);
         $this->addUrlObject($url);
     }

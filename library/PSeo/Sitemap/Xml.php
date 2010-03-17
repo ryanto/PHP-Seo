@@ -1,9 +1,14 @@
 <?php
 
+require_once 'PSeo/Sitemap/Abstract.php';
+require_once 'PSeo/Sitemap/Url/Xml.php';
+
+
 class PSeo_Sitemap_Xml extends PSeo_Sitemap_Abstract {
 
     private $_schema = 'http://www.sitemaps.org/schemas/sitemap/0.9';
 
+    protected $_className = 'Xml';
 
     public function content() {
 
