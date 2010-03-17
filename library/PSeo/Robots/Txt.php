@@ -27,7 +27,7 @@ class PSeo_Robots_Txt {
         $this->_userAgent = $userAgent;
     }
 
-    public function setSitemap($sitemap) {
+    public function sitemap($sitemap) {
         $this->_sitemap = $sitemap;
     }
 
@@ -42,7 +42,10 @@ class PSeo_Robots_Txt {
             $text .= "Allow: " . $url . "\n";
         }
 
-        $text .= "Sitemap: " . $this->_sitemap . "\n";
+        if ($this->_sitemap != '') {
+            $text .= "Sitemap: " . $this->_sitemap . "\n";
+        }
+        
         return $text;
 
     }
